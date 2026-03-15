@@ -20,9 +20,9 @@
 # APP
 #--------------------------------------------------------------------
 
-# app.baseURL = ''
+# app.baseURL = 'http://resume2.test'
 # If you have trouble with `.`, you could also use `_`.
-# app_baseURL = ''
+# app_baseURL = 'http://resume2.test'
 # app.forceGlobalSecureRequests = false
 # app.CSPEnabled = false
 
