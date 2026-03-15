@@ -63,6 +63,10 @@
                 <p class="is-size-6"><strong>Email:</strong></p>
                 <p class="is-size-7"><a href="mailto:<?= $info['email'] ?>"><?= $info['email'] ?></a></p>
             </div>
+            <div class="notification is-white p-4">
+                <p class="is-size-6"><strong>Phone:</strong></p>
+                <p class="is-size-7"><?= $info['phone_number'] ?></p>
+            </div>
         </div>
 
         <div class="column is-3">

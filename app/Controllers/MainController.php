@@ -29,6 +29,7 @@ class MainController extends BaseController
             'name'       => 'Rylle G. Panganonong', // You can even move this to a 'profile' table later!
             'role'       => 'Developer',
             'email'      => 'panganonongrylle@gmail.com',
+            'phone_number' => '09502758504',
             'photo'    => 'profile.jpg',
             'experience' => $expModel->findAll(), // Fetches all rows from MySQL
             'skills'     => $skillModel->findAll(),

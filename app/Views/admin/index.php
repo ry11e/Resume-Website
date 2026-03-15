@@ -19,6 +19,10 @@
 
             <h1 class="title">Admin Dashboard</h1>
 
+            <div class="container">
+                
+            </div>
+
             <h3 class="title is-5 has-text-link">Skills</h3>
             <table class="table is-fullwidth is-striped">
                 <thead>
