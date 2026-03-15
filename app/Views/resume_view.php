@@ -11,20 +11,33 @@
     <div class="hero-body">
         <div class="container">
             <div class="columns is-vcentered">
-                
+
                 <div class="column">
                     <h1 class="title is-2"><?= $info['name'] ?></h1>
                     <h2 class="subtitle is-4"><?= $info['role'] ?></h2>
                 </div>
 
                 <div class="column is-narrow">
-                    <figure class="image is-128x128">
-                        <img class="is-rounded" src="images/profile.jpg" alt="My Profile Picture">
-                    </figure>
+                    <div class="is-flex is-flex-direction-column is-align-items-center">
+                        <figure class="image is-128x128">
+                            <img class="is-rounded" src="images/profile.jpg" alt="My Profile Picture">
+                        </figure>
+
+                        <div class="buttons is-centered mt-4">
+                            <?php if (session()->get('isLoggedIn')): ?>
+                                <a href="<?= base_url('admin') ?>" class="button is-warning is-small">
+                                    <strong>⚙️ Admin</strong>
+                                </a>
+                                <a href="<?= base_url('logout') ?>" class="button is-light is-small">Logout</a>
+                            <?php else: ?>
+                                <a href="<?= base_url('login') ?>" class="is-size-7 has-text-grey-light">Admin Login</a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                 </div>
 
             </div>
-            </div>
+        </div>
     </div>
 </section>
 

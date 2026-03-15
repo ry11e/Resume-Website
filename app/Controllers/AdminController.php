@@ -5,6 +5,13 @@ use App\Models\SkillModel;
 class AdminController extends BaseController {
     
     public function index() {
+
+        // Checks if logged in. if not, redirect
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login');
+        }
+
+
         $model = new SkillModel();
         $data['skills'] = $model->findAll();
         return view('admin/index', $data);
