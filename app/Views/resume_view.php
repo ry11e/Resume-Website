@@ -10,18 +10,21 @@
 <section class="hero is-link is-bold">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title is-2"><?= $info['name'] ?></h1>
-            <h2 class="subtitle is-4"><?= $info['role'] ?></h2>
-        </div>
-        <div class="container mt-5">
-            <div class="columns is-centered">
+            <div class="columns is-vcentered">
+                
+                <div class="column">
+                    <h1 class="title is-2"><?= $info['name'] ?></h1>
+                    <h2 class="subtitle is-4"><?= $info['role'] ?></h2>
+                </div>
+
                 <div class="column is-narrow">
                     <figure class="image is-128x128">
                         <img class="is-rounded" src="images/profile.jpg" alt="My Profile Picture">
                     </figure>
                 </div>
+
             </div>
-        </div>
+            </div>
     </div>
 </section>
 
