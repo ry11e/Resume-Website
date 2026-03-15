@@ -12,6 +12,11 @@
 <body>
     <section class="section">
         <div class="container">
+            <div>
+                <a href="<?= base_url('resume') ?>" class="button is-light is-small">Back</a>
+                <br>
+            </div>
+
             <h1 class="title">Admin Dashboard</h1>
 
             <h3 class="title is-5 has-text-link">Skills</h3>
