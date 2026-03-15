@@ -42,7 +42,9 @@ class AdminController extends BaseController
 
         // Take the data from the Bulma form
         $newData = [
-            'name' => $this->request->getPost('name')
+            'name' => $this->request->getPost('name'),
+            'level'  => $this->request->getPost('level'),
+            'desc'   => $this->request->getPost('desc'),
         ];
 
         $model->update($id, $newData);
