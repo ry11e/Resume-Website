@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\EducationModel;
 use App\Models\SkillModel;
+use App\Models\ExperienceModel;
 
 class AdminController extends BaseController
 {
@@ -19,10 +20,12 @@ class AdminController extends BaseController
 
         $skillModel = new \App\Models\SkillModel();
         $eduModel = new \App\Models\EducationModel(); // 1. Load the new model
+        $expModel = new \App\Models\ExperienceModel(); 
 
         $data = [
             'skills'    => $skillModel->findAll(),
             'education' => $eduModel->findAll(),     // 2. Fetch the education data
+            'experience' => $expModel->findAll(),
             'title'     => 'Admin Dashboard'
         ];
 
@@ -74,5 +77,30 @@ class AdminController extends BaseController
 
         $model->update($id, $newData);
         return redirect()->to(base_url('/resume'))->with('status', 'Education Updated!');
+    }
+
+
+
+    public function editExperience($id)
+    {
+        $model = new ExperienceModel();
+        $data['experience'] = $model->find($id);
+        return view('admin/edit_experience', $data);
+    }
+
+    public function updateExperience($id)
+    {
+        $model = new ExperienceModel();
+
+        // Take the data from the Bulma form
+        $newData = [
+            'year' => $this->request->getPost('year'), // name matches Model
+            'company'  => $this->request->getPost('company'),
+            'desc'   => $this->request->getPost('desc'),
+            // 'status'   => $this->request->getPost('status'),
+        ];
+
+        $model->update($id, $newData);
+        return redirect()->to(base_url('/resume'))->with('status', 'Experience Updated!');
     }
 }

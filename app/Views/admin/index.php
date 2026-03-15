@@ -64,6 +64,34 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <br>
+
+
+            <h3 class="title is-5 has-text-link">Experience</h3>
+            <table class="table is-fullwidth is-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Company</th>
+                        <th>Year</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($experience as $exp): ?>
+                        <tr>
+                            <td><?= $exp['id'] ?></td>
+                            <td><?= $exp['company'] ?></td>
+                            <td><?= $exp['year'] ?></td>
+                            <td>
+                                <a href="<?= base_url('admin/edit-experience/' . $exp['id']) ?>" class="button is-small is-warning">
+                                    Edit
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </section>
 </body>

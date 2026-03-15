@@ -8,7 +8,7 @@ class AddLevelToSkills2 extends Migration
 {
     public function up()
     {
-         $fields = [
+        $fields = [
         'level' => ['type' => 'VARCHAR', 'constraint' => 200, 'null' => true],
         ];
         $this->forge->addColumn('skills', $fields);
