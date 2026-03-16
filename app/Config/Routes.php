@@ -9,6 +9,10 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'MainController::resume');
 $routes->get('resume', 'MainController::resume');
 $routes->get('admin', 'AdminController::index');
+
+
+
+//Admin Records Controller
 $routes->get('admin/edit-skill/(:num)', 'AdminController::editSkill/$1');       //The (:num) is a placeholder for the ID of the skill you want to change.
 $routes->post('admin/update-skill/(:num)', 'AdminController::updateSkill/$1');  //The (:num) is a placeholder for the ID of the skill you want to change.
 
@@ -18,10 +22,21 @@ $routes->post('admin/update-education/(:num)', 'AdminController::updateEducation
 $routes->get('admin/edit-experience/(:num)', 'AdminController::editExperience/$1');       //The (:num) is a placeholder for the ID of the skill you want to change.
 $routes->post('admin/update-experience/(:num)', 'AdminController::updateExperience/$1');  //The (:num) is a placeholder for the ID of the skill you want to change.
 
+// Add Skill
+$routes->post('admin/add-skill', 'AdminController::addSkill');
+// Soft Delete Skill
+$routes->get('admin/delete-skill/(:num)', 'AdminController::deleteSkill/$1');
+
+
+
+
+// Admin Info Controller
 $routes->get('admin/account', 'Admin::account');          // To view the page
 $routes->post('admin/update-account', 'Admin::updateAccount'); // To handle the form
 
 
+
+// Authorization Controller
 $routes->get('login', 'AuthController::login');
 $routes->post('attempt-login', 'AuthController::attemptLogin');
 $routes->get('logout', 'AuthController::logout');

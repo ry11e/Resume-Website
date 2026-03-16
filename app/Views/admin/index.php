@@ -24,10 +24,24 @@
                 <a href="<?= base_url('admin/account') ?>" class="button is-light is-small">Edit Info</a>
             </div>
             <div class="container">
-                
+
             </div>
 
             <h3 class="title is-5 has-text-link">Skills</h3>
+
+            <!-- Add Skill -->
+            <form action="<?= base_url('admin/add-skill') ?>" method="POST" class="mb-5">
+                <?= csrf_field() ?>
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" name="skill_name" placeholder="New Skill Name" required>
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-primary">Add Skill</button>
+                    </div>
+                </div>
+            </form>
+
             <table class="table is-fullwidth is-striped">
                 <thead>
                     <tr>
@@ -45,6 +59,10 @@
                                 <a href="<?= base_url('admin/edit-skill/' . $skill['id']) ?>" class="button is-small is-warning">
                                     Edit
                                 </a>
+
+                                <a href="<?= base_url('admin/delete-skill/' . $skill['id']) ?>"
+                                    class="button is-small is-danger"
+                                    onclick="return confirm('Are you sure?')">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

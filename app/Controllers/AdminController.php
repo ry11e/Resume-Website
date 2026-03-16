@@ -131,4 +131,25 @@ class AdminController extends BaseController
             return redirect()->to('/admin')->with('msg', 'Account updated!');
         }
     }
+
+
+
+
+
+
+    public function addSkill()
+    {
+        $model = new SkillModel();
+        $model->save([
+            'name' => $this->request->getPost('skill_name')
+        ]);
+        return redirect()->to(base_url('/admin'))->with('status', 'Skill added!');
+    }
+
+    public function deleteSkill($id)
+    {
+        $model = new SkillModel();
+        $model->delete($id); // This now Soft Deletes because of the Model setting!
+        return redirect()->to(base_url('/admin'))->with('status', 'Skill removed!');
+    }
 }
