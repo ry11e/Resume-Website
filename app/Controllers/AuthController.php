@@ -11,11 +11,21 @@ class AuthController extends BaseController
 
     public function attemptLogin()
     {
-        $password = $this->request->getPost('password');
+        
+        $db = \Config\Database::connect();
+        $passwordInput = $this->request->getPost('password');
 
-        // Simple hardcoded password check for now
-        if ($password === '12345678') {
-            session()->set('isLoggedIn', true);
+        // 1. Fetch the single user record (ID 1)
+        $user = $db->table('users')->where('id', 1)->get()->getRow();
+
+        // 2. Check if user exists and verify password
+        // Using password_verify handles the decryption logic
+        if ($user && password_verify($passwordInput, $user->password)) {
+            session()->set([
+                'isLoggedIn' => true,
+                'user_id'    => $user->id,
+                'user_name'  => $user->first_name // Optional convenience
+            ]);
             return redirect()->to(base_url('resume'));
         }
 
