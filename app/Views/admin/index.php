@@ -71,6 +71,20 @@
             <br>
 
             <h3 class="title is-5 has-text-link">Education</h3>
+
+            <!-- Add Skill -->
+            <form action="<?= base_url('admin/add-education') ?>" method="POST" class="mb-5">
+                <?= csrf_field() ?>
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" name="school_name" placeholder="New School Name" required>
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-primary">Add School</button>
+                    </div>
+                </div>
+            </form>
+
             <table class="table is-fullwidth is-striped">
                 <thead>
                     <tr>
@@ -90,6 +104,9 @@
                                 <a href="<?= base_url('admin/edit-education/' . $educ['id']) ?>" class="button is-small is-warning">
                                     Edit
                                 </a>
+                                <a href="<?= base_url('admin/delete-education/' . $educ['id']) ?>"
+                                    class="button is-small is-danger"
+                                    onclick="return confirm('Are you sure?')">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -26,7 +26,10 @@ $routes->post('admin/update-experience/(:num)', 'AdminController::updateExperien
 $routes->post('admin/add-skill', 'AdminController::addSkill');
 // Soft Delete Skill
 $routes->get('admin/delete-skill/(:num)', 'AdminController::deleteSkill/$1');
-
+// Add Education
+$routes->post('admin/add-education', 'AdminController::addEducation');
+// Soft Delete Education
+$routes->get('admin/delete-education/(:num)', 'AdminController::deleteEducation/$1');
 
 
 

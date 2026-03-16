@@ -152,4 +152,21 @@ class AdminController extends BaseController
         $model->delete($id); // This now Soft Deletes because of the Model setting!
         return redirect()->to(base_url('/admin'))->with('status', 'Skill removed!');
     }
+
+
+    public function addEducation()
+    {
+        $model = new EducationModel();
+        $model->save([
+            'school' => $this->request->getPost('school_name')
+        ]);
+        return redirect()->to(base_url('/admin'))->with('status', 'School added!');
+    }
+
+    public function deleteEducation($id)
+    {
+        $model = new EducationModel();
+        $model->delete($id); // This now Soft Deletes because of the Model setting!
+        return redirect()->to(base_url('/admin'))->with('status', 'School removed!');
+    }
 }
