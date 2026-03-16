@@ -22,14 +22,14 @@ $routes->post('admin/update-education/(:num)', 'AdminController::updateEducation
 $routes->get('admin/edit-experience/(:num)', 'AdminController::editExperience/$1');       //The (:num) is a placeholder for the ID of the skill you want to change.
 $routes->post('admin/update-experience/(:num)', 'AdminController::updateExperience/$1');  //The (:num) is a placeholder for the ID of the skill you want to change.
 
-// Add Skill
-$routes->post('admin/add-skill', 'AdminController::addSkill');
-// Soft Delete Skill
-$routes->get('admin/delete-skill/(:num)', 'AdminController::deleteSkill/$1');
-// Add Education
-$routes->post('admin/add-education', 'AdminController::addEducation');
-// Soft Delete Education
-$routes->get('admin/delete-education/(:num)', 'AdminController::deleteEducation/$1');
+
+$routes->post('admin/add-skill', 'AdminController::addSkill');                  // Add Skill
+$routes->get('admin/delete-skill/(:num)', 'AdminController::deleteSkill/$1');    // Soft Delete Skill
+$routes->post('admin/add-education', 'AdminController::addEducation');          // Add Education 
+$routes->get('admin/delete-education/(:num)', 'AdminController::deleteEducation/$1'); // Soft Delete Education
+$routes->post('admin/add-experience', 'AdminController::addExperience');          // Add Education 
+$routes->get('admin/delete-experience/(:num)', 'AdminController::deleteExperience/$1'); // Soft Delete Education
+
 
 
 

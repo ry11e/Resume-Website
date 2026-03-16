@@ -72,7 +72,7 @@
 
             <h3 class="title is-5 has-text-link">Education</h3>
 
-            <!-- Add Skill -->
+            <!-- Add School -->
             <form action="<?= base_url('admin/add-education') ?>" method="POST" class="mb-5">
                 <?= csrf_field() ?>
                 <div class="field has-addons">
@@ -116,6 +116,20 @@
 
 
             <h3 class="title is-5 has-text-link">Experience</h3>
+
+            <!-- Add School -->
+            <form action="<?= base_url('admin/add-experience') ?>" method="POST" class="mb-5">
+                <?= csrf_field() ?>
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" name="experience_name" placeholder="New Experience Name" required>
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-primary">Add Experience</button>
+                    </div>
+                </div>
+            </form>
+
             <table class="table is-fullwidth is-striped">
                 <thead>
                     <tr>
@@ -135,6 +149,9 @@
                                 <a href="<?= base_url('admin/edit-experience/' . $exp['id']) ?>" class="button is-small is-warning">
                                     Edit
                                 </a>
+                                <a href="<?= base_url('admin/delete-experience/' . $exp['id']) ?>"
+                                    class="button is-small is-danger"
+                                    onclick="return confirm('Are you sure?')">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -169,4 +169,24 @@ class AdminController extends BaseController
         $model->delete($id); // This now Soft Deletes because of the Model setting!
         return redirect()->to(base_url('/admin'))->with('status', 'School removed!');
     }
+
+
+
+
+
+    public function addExperience()
+    {
+        $model = new ExperienceModel();
+        $model->save([
+            'company' => $this->request->getPost('experience_name')
+        ]);
+        return redirect()->to(base_url('/admin'))->with('status', 'Experience added!');
+    }
+
+    public function deleteExperience($id)
+    {
+        $model = new ExperienceModel();
+        $model->delete($id); // This now Soft Deletes because of the Model setting!
+        return redirect()->to(base_url('/admin'))->with('status', 'Experience removed!');
+    }
 }
