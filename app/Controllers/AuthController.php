@@ -19,7 +19,7 @@ class AuthController extends BaseController
             return redirect()->to(base_url('resume'));
         }
 
-        return redirect()->back()->with('error', 'Wrong password!');
+        return redirect()->to(base_url('resume'))->with('error', 'Wrong password!');
     }
 
     public function logout()

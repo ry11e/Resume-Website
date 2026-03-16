@@ -18,6 +18,10 @@ $routes->post('admin/update-education/(:num)', 'AdminController::updateEducation
 $routes->get('admin/edit-experience/(:num)', 'AdminController::editExperience/$1');       //The (:num) is a placeholder for the ID of the skill you want to change.
 $routes->post('admin/update-experience/(:num)', 'AdminController::updateExperience/$1');  //The (:num) is a placeholder for the ID of the skill you want to change.
 
+$routes->get('admin/account', 'Admin::account');          // To view the page
+$routes->post('admin/update-account', 'Admin::updateAccount'); // To handle the form
+
+
 $routes->get('login', 'AuthController::login');
 $routes->post('attempt-login', 'AuthController::attemptLogin');
 $routes->get('logout', 'AuthController::logout');

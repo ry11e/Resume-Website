@@ -20,7 +20,7 @@ class AdminController extends BaseController
 
         $skillModel = new \App\Models\SkillModel();
         $eduModel = new \App\Models\EducationModel(); // 1. Load the new model
-        $expModel = new \App\Models\ExperienceModel(); 
+        $expModel = new \App\Models\ExperienceModel();
 
         $data = [
             'skills'    => $skillModel->findAll(),
@@ -102,5 +102,33 @@ class AdminController extends BaseController
 
         $model->update($id, $newData);
         return redirect()->to(base_url('/resume'))->with('status', 'Experience Updated!');
+    }
+
+
+
+
+
+
+
+    public function updateAccount()
+    {
+        $model = new \App\Models\UserModel();
+        $userId = session()->get('user_id'); // Get your ID from the session
+
+        $data = [
+            'name'  => $this->request->getPost('name'),
+            'email' => $this->request->getPost('email'),
+        ];
+
+        // Password Check Logic
+        $newPassword = $this->request->getPost('password');
+        if (!empty($newPassword)) {
+            // HASH THE PASSWORD! Never save plain text.
+            $data['password'] = password_hash($newPassword, PASSWORD_DEFAULT);
+        }
+
+        if ($model->update($userId, $data)) {
+            return redirect()->to('/admin')->with('msg', 'Account updated!');
+        }
     }
 }

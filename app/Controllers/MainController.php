@@ -26,7 +26,7 @@ class MainController extends BaseController
         $educModel = new EducationModel();
 
         $data['info'] = [
-            'name'       => 'Rylle G. Panganonong', // You can even move this to a 'profile' table later!
+            'name'       => 'Rylle G. Panganonong', 
             'role'       => 'Developer',
             'email'      => 'panganonongrylle@gmail.com',
             'phone_number' => '09502758504',

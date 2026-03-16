@@ -19,6 +19,10 @@
 
             <h1 class="title">Admin Dashboard</h1>
 
+
+            <div>
+                <a href="<?= base_url('admin/account') ?>" class="button is-light is-small">Edit Info</a>
+            </div>
             <div class="container">
                 
             </div>
